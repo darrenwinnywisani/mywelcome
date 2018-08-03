@@ -1,17 +1,123 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
+<!--<ion-header>
+    <ion-navbar>
+    <ion-title>Profile Page</ion-title>
+    </ion-navbar>
+  </ion-header>
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <img src="./assets/imgs/winny.png" height="100" width="200"/>
+    <br>
+    <p><ion-icon name="camera"></ion-icon> Precia Winny Rikhotso</p>
+   
+    <p>   <ion-icon name="locate"></ion-icon> Pretoria </p>
+<p>  <ion-icon name="person"></ion-icon> Member Since: 7 May 2018 </p>
+<ion-icon name="female"></ion-icon> Female
+
+    <ion-list>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-label color="primary" floating>FirstName:</ion-label>
+      <ion-input type="Text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary"  floating>Lastname:</ion-label>
+        <ion-input type="tel"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label color="primary"floating>Surname:</ion-label>
+      <ion-input type="tel"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label color="primary" >Gender:</ion-label>
+        <ion-select [(ngModel)]="gender" >
+          <ion-option value="f">Female</ion-option>
+          <ion-option value="m">Male</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Age:</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary"  floating>Email:</ion-label>
+        <ion-input type="email" ></ion-input>
+      </ion-item>
+    
+    <ion-item>
+      <ion-label color="primary" floating> Home Address:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label color="primary" floating> </ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+    
+    <ion-item>
+        <ion-label color="primary" >City:</ion-label>
+        <ion-select [(ngModel)]="city" >
+          <ion-option value="f">Pretoria</ion-option>
+          <ion-option value="m">Johannisburg</ion-option>
+        </ion-select>
+      </ion-item>
+
+    <ion-item>
+       <ion-label color="primary" floating>Code: </ion-label>
+      <ion-textarea type="text"></ion-textarea>
     </ion-item>
   </ion-list>
+  <button ion-button color="primary" (click)="Edit()">EditProfile</button>
+  
+</ion-content>-->
+
+
+
+
+
+<ion-content padding class="img">
+  
+    <form [formGroup]="userFG" (ngSubmit)="formSubmit(userFG)">
+        <div class="container" >
+        <h1><img class="circle-pic" src="./assets/imgs/winn.png"/></h1>
+
+       
+          
+        <br>
+        <ion-list>
+          
+            <ion-item style="background-color:transparent">
+                <ion-label fixed style="color: white"> <ion-icon name="person">
+                  Username </ion-icon> </ion-label>
+                <ion-input formControlName="username" type="text" style="color: white"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="userFG.controls['username'].invalid">
+                <p ion-text color="danger">Please Provide a username with 5 or more characters</p>
+            </ion-item>
+
+            <ion-item style="background-color:transparent">
+                <ion-label fixed style="color: white">   <ion-icon name="mail">
+                  email</ion-icon></ion-label>
+                <ion-input formControlName="email" type="email" style="color: white"></ion-input>
+            </ion-item>
+            <ion-item style="background-color:transparent">
+                <ion-label fixed style="color: white">   <ion-icon name="call">
+                  Cell</ion-icon></ion-label>
+                <ion-input formControlName="username" type="text" style="color: white"></ion-input>
+            </ion-item>
+            <ion-item no-lines *ngIf="userFG.controls['username'].invalid">
+                <p ion-text color="danger">Please Provide 10 characters</p>
+            </ion-item>
+
+            <ion-item style="background-color:transparent">
+                <ion-label fixed style="color: white">   <ion-icon name="lock">
+                  password</ion-icon></ion-label>
+                <ion-input formControlName="password" type="password" style="color: white"></ion-input>
+            </ion-item>
+            <button ion-button  round full color="primary" (click)=" submit()">edit</button>
+        </ion-list>
+        </div>
+
+        
+    </form>
+
 </ion-content>
